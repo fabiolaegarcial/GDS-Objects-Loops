@@ -27,26 +27,30 @@ let recipes = [
     }
 ]
 
-// Your code goes here:
-
-// Each recipe should be in its own div, that can be recCont. We are declaring it here since we will want to change its value with each itteration of the loop.
-
-// let recCont
 
 var element = document.querySelector(".recipes");
+var recCont = document.createElement("div");
 
-var child = document.createElement("DIV");
-child.innerHTML = 'Child Container';
-
-let recCont = recipes.map(function(o){
+let ins = recipes.map(function(li){
     return `
-    <div class="rec-Cont">
-    <p class="recTitle"> Title: ${o.title}</p>
-    <p class="recTime"> Time: ${o.time}</p>
-    <p class="recCal"> Calories: ${o.calories}</p>
-    <p class="recIngredients"> Ingredients: ${o.ingredients}</p>
+    <div class="single">
+    <p class="recTitle"> Title: ${li.title}</p>
+    <p class="recTime"> Time: ${li.time}</p>
+    <p class="recCal"> Calories: ${li.calories}</p>
+    <p class="recIngredients"> Ingredients: <br> ${li.ingredients}</p>
     </div>
     `;
 });
-child.innerHTML = recCont;
-element.appendChild(child);
+recCont.innerHTML = ins;
+element.appendChild(recCont);
+
+
+// trying to use loop:
+// let recCont;
+// var element = document.querySelector(".recipes")
+// for (let i = 0; i < recipes.length; i++){
+//     recCont = document.createElement("div");
+
+//     recCont = recipes.title + "," + recipes.time + "," + recipes.calories;
+//     element.appendChild(recCont);
+// }
